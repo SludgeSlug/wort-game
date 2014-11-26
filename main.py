@@ -63,3 +63,5 @@ class WortApp(App):
 
 if __name__ == '__main__':
     WortApp().run()
+
+__version__ = '0.0.1'
