@@ -31,7 +31,7 @@ class WortGame(Widget):
 
     def serve_ball(self):
         self.ball.center = self.center
-        self.ball.velocity = (-4, 0)
+        self.ball.velocity = (1, 4)
 
     def update(self, dt):
         self.ball.move()
@@ -39,18 +39,18 @@ class WortGame(Widget):
         self.player.bounce_ball(self.ball)
 
         # bounce off top and bottom
-        if (self.ball.y < 0) or (self.ball.top > self.height):
+        if self.ball.top > self.height:
             self.ball.velocity_y *= -1
 
-        # bounce off left
-        if self.ball.x < 0 :
+        # bounce off left or right
+        if (self.ball.x < 0) or (self.ball.right > self.width):
             self.ball.velocity_x *= -1
 
-        if self.ball.right > self.width:
+        if self.ball.y < 0:
             self.serve_ball()
 
     def on_touch_move(self, touch):
-        self.player.center_y = touch.y
+        self.player.center_x = touch.x
 
 
 class WortApp(App):

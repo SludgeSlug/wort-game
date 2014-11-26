@@ -8,7 +8,7 @@
             size: self.size
 
 <Paddle>:
-    size: 25, 200
+    size: 200, 25
     canvas:
         Rectangle:
             pos:self.pos
@@ -16,24 +16,12 @@
 
 <WortGame>:    
     ball: pong_ball   
-    player: player_1 
+    player: player_1
 
-    canvas:
-        Rectangle:
-            pos: self.center_x - 5, 0
-            size: 10, self.height
-            
-    Label:
-        font_size: 70  
-        center_x: root.width / 4
-        top: root.top - 50
-        text: "0"
-        
-    Label:
-        font_size: 70  
-        center_x: root.width * 3 / 4
-        top: root.top - 50
-        text: "0"
+    Image:
+        source: 'Wort.png'      
+        x: root.width / 2
+        y: root.height / 2
 
     PongBall:
         id: pong_ball
@@ -41,5 +29,5 @@
 
     Paddle:
         id: player_1
-        x: root.width-self.width
-        center_y: root.center_y
+        x: root.width / 2
+        y: root.y
